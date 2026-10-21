@@ -8,6 +8,5 @@ Route::get('/', function () {
     return redirect()->route('products.index');
 });
 
-// Resource Route untuk Category dan Product
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);

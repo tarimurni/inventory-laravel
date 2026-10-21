@@ -6,6 +6,14 @@
     <a href="{{ route('products.create') }}" class="btn btn-primary">Tambah Produk</a>
 </div>
 
+{{-- Form Pencarian --}}
+<form action="{{ route('products.index') }}" method="GET" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="search" class="form-control" placeholder="Cari nama atau SKU produk..." value="{{ request('search') }}">
+        <button class="btn btn-outline-secondary" type="submit">Cari</button>
+    </div>
+</form>
+
 <table class="table table-bordered bg-white">
     <thead class="table-dark">
         <tr>
@@ -41,4 +49,9 @@
         @endforelse
     </tbody>
 </table>
+
+{{-- Link Navigasi Pagination --}}
+<div class="d-flex justify-content-end">
+    {{ $products->links() }}
+</div>
 @endsection
